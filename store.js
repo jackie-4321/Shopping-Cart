@@ -20,14 +20,7 @@ function addToCart(image,name,price, quantity) {
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     if (cartItemNames.length == 0) {
-        //add item to cart
-        addItem(image, name, price, quantity);
-
-        //update total
-        total(price, quantity);
-
-        //delete button
-        deleteBtn()        
+        ready(image, name, price, quantity)        
     } else {
         for (var i = 0; i < cartItemNames.length; i++) {
             if (cartItemNames[i].innerText == name) {
@@ -35,13 +28,20 @@ function addToCart(image,name,price, quantity) {
                 return
             }
         }
-            //add item to cart
-            addItem(image, name, price, quantity); 
-            //update total
-            total(price, quantity);
-            //delete button
-            deleteBtn()
+        ready(image, name, price, quantity)
     }    
+}
+
+//all the functions
+function ready(image, name, price, quantity) {
+    //add item to cart
+    addItem(image, name, price, quantity);
+
+    //update total
+    total(price, quantity);
+
+    //delete button
+    deleteBtn()
 }
 
 //add item to cart
